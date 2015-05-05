@@ -12,12 +12,16 @@
  */
 package org.assertj.core.error;
 
+import org.assertj.core.error.builders.MessageBuilder;
+
 import java.util.List;
+
+import static org.assertj.core.error.builders.MessageBuilder.aMessage;
 
 /**
  * Creates an <code>{@link AssertionError}</code> indicating that an assertion that verifies that two objects are
  * lenient equal by accepting fields failed.
- * 
+ *
  * @author Nicolas François
  * @author Joel Costigliola
  */
@@ -47,13 +51,13 @@ public class ShouldBeEqualByComparingOnlyGivenFields extends BasicErrorMessageFa
 
   private ShouldBeEqualByComparingOnlyGivenFields(Object actual, List<String> rejectedFields, List<Object> rejectedValues,
                                                   List<Object> expectedValue, List<String> acceptedFields) {
-    super("%nExpecting values:%n  <%s>%nin fields:%n  <%s>%nbut were:%n  <%s>%nin <%s>.%nComparison was performed on fields:%n  <%s>",
+    super(aMessage().expectingValuesInFields().butWereIn().withComparisonOnFields().build(),
         expectedValue, rejectedFields, rejectedValues, actual, acceptedFields);
   }
 
   private ShouldBeEqualByComparingOnlyGivenFields(Object actual, String rejectedField, Object rejectedValue, Object expectedValue,
-                                                   List<String> acceptedFields) {
-    super("%nExpecting value <%s> in field <%s> but was <%s> in <%s>", expectedValue, rejectedField, rejectedValue, actual,
+                                                  List<String> acceptedFields) {
+    super(aMessage().expectingValueInField().butWasIn().build(), expectedValue, rejectedField, rejectedValue, actual,
         acceptedFields);
   }
 
