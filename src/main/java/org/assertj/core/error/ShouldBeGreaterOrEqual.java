@@ -14,6 +14,8 @@ package org.assertj.core.error;
 
 import org.assertj.core.internal.*;
 
+import static org.assertj.core.error.builders.MessageBuilder.aMessage;
+
 /**
  * Creates an error message indicating that an assertion that verifies that a value is greater than or equal to another one
  * failed.
@@ -48,6 +50,6 @@ public class ShouldBeGreaterOrEqual extends BasicErrorMessageFactory {
   }
 
   private ShouldBeGreaterOrEqual(Comparable<?> actual, Comparable<?> other, ComparisonStrategy comparisonStrategy) {
-    super("%nExpecting:%n <%s>%nto be greater than or equal to:%n <%s> %s", actual, other, comparisonStrategy);
+    super(aMessage().expectingWithNewLine().toBeGreaterThanOrEqualTo().build(), actual, other, comparisonStrategy);
   }
 }
