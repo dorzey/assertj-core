@@ -44,7 +44,7 @@ public class ShouldBeGreaterOrEqual_create_Test {
 	String message = factory.create(new TextDescription("Test"), new StandardRepresentation());
 	assertThat(message).isEqualTo(String.format("[Test] %n" +
 	                              "Expecting:%n" +
-	                              " <6>%n" +
+	                              "  <6>%n" +
 	                              "to be greater than or equal to:%n" +
 	                              " <8> "));
   }
@@ -55,7 +55,7 @@ public class ShouldBeGreaterOrEqual_create_Test {
 	String message = factory.create(new TextDescription("Test"), new StandardRepresentation());
 	assertThat(message).isEqualTo(String.format("[Test] %n" +
 	                              "Expecting:%n" +
-	                              " <6>%n" +
+	                              "  <6>%n" +
 	                              "to be greater than or equal to:%n" +
 	                              " <8> when comparing values using 'AbsValueComparator'"));
   }
