@@ -12,56 +12,68 @@
  */
 package org.assertj.core.error.builders;
 
-public class MessageBuilder{
+public class MessageBuilder {
 
-    private static class Lexicon {
-        static final String EXPECTING_VALUE = "%nExpecting value <%s> ";
-        static final String EXPECTING_VALUES = "%nExpecting values:%n  <%s>";
-        static final String IN_FIELD = "in field <%s> ";
-        static final String IN_FIELDS = "%nin fields:%n  <%s>";
-        static final String BUT_WAS = "but was <%s> ";
-        static final String BUT_WERE = "%nbut were:%n  <%s>";
-        static final String IN = "in <%s>";
-        static final String NEWLINE_IN = "%nin <%s>";
-        static final String COMPARISON_ON_FIELDS = ".%nComparison was performed on fields:%n  <%s>";
-    }
+  private static class Lexicon {
+    static final String EXPECTING_VALUE = "%nExpecting value <%s> ";
+    static final String EXPECTING_VALUES = "%nExpecting values:%n  <%s>";
+    static final String EXPECTING = "%nExpecting: <%s> ";
+    static final String IN_FIELD = "in field <%s> ";
+    static final String IN_FIELDS = "%nin fields:%n  <%s>";
+    static final String BUT_WAS = "but was <%s> ";
+    static final String BUT_WERE = "%nbut were:%n  <%s>";
+    static final String IN = "in <%s>";
+    static final String NEWLINE_IN = "%nin <%s>";
+    static final String COMPARISON_ON_FIELDS = ".%nComparison was performed on fields:%n  <%s>";
+    static final String HAVE_SAME_GENERIC_TYPE = "have the same generic type as condition <%s>";
+  }
 
-    private StringBuilder builder = new StringBuilder();
+  private StringBuilder builder = new StringBuilder();
 
-    private MessageBuilder(){
+  private MessageBuilder() {
 
-    }
+  }
 
-    public MessageBuilder expectingValueInField(){
-        builder.append(Lexicon.EXPECTING_VALUE).append(Lexicon.IN_FIELD);
-        return this;
-    }
+  public MessageBuilder expecting() {
+    builder.append(Lexicon.EXPECTING);
+    return this;
+  }
 
-    public MessageBuilder expectingValuesInFields(){
-        builder.append(Lexicon.EXPECTING_VALUES).append(Lexicon.IN_FIELDS);
-        return this;
-    }
+  public MessageBuilder expectingValueInField() {
+    builder.append(Lexicon.EXPECTING_VALUE).append(Lexicon.IN_FIELD);
+    return this;
+  }
 
-    public MessageBuilder butWasIn(){
-        builder.append(Lexicon.BUT_WAS).append(Lexicon.IN);
-        return this;
-    }
+  public MessageBuilder expectingValuesInFields() {
+    builder.append(Lexicon.EXPECTING_VALUES).append(Lexicon.IN_FIELDS);
+    return this;
+  }
 
-    public MessageBuilder butWereIn(){
-        builder.append(Lexicon.BUT_WERE).append(Lexicon.NEWLINE_IN);
-        return this;
-    }
+  public MessageBuilder butWasIn() {
+    builder.append(Lexicon.BUT_WAS).append(Lexicon.IN);
+    return this;
+  }
 
-    public MessageBuilder withComparisonOnFields(){
-        builder.append(Lexicon.COMPARISON_ON_FIELDS);
-        return this;
-    }
+  public MessageBuilder butWereIn() {
+    builder.append(Lexicon.BUT_WERE).append(Lexicon.NEWLINE_IN);
+    return this;
+  }
 
-    public String build(){
-        return builder.toString();
-    }
+  public MessageBuilder withComparisonOnFields() {
+    builder.append(Lexicon.COMPARISON_ON_FIELDS);
+    return this;
+  }
 
-    public static MessageBuilder aMessage(){
-        return new MessageBuilder();
-    }
+  public MessageBuilder haveSameGenericType() {
+    builder.append(Lexicon.HAVE_SAME_GENERIC_TYPE);
+    return this;
+  }
+
+  public String build() {
+    return builder.toString();
+  }
+
+  public static MessageBuilder aMessage() {
+    return new MessageBuilder();
+  }
 }

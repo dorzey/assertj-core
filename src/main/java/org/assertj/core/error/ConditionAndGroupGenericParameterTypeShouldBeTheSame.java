@@ -14,6 +14,8 @@ package org.assertj.core.error;
 
 import org.assertj.core.api.Condition;
 
+import static org.assertj.core.error.builders.MessageBuilder.aMessage;
+
 /**
  * Creates an error message indicating that an assertion that verifies type of elements of group and {@code Condition} A group of
  * elements can be a collection, an array.<br>
@@ -24,7 +26,7 @@ import org.assertj.core.api.Condition;
 public class ConditionAndGroupGenericParameterTypeShouldBeTheSame extends BasicErrorMessageFactory {
 
   public ConditionAndGroupGenericParameterTypeShouldBeTheSame(Object actual, Condition<?> condition) {
-    super("%nExpecting: <%s> have the same generic type as condition <%s>", actual, condition);
+    super(aMessage().expecting().haveSameGenericType().build(), actual, condition);
   }
 
   /**
