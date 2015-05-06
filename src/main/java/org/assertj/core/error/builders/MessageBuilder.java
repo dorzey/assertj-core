@@ -18,7 +18,7 @@ public class MessageBuilder {
     static final String EXPECTING_VALUE = "%nExpecting value <%s> ";
     static final String EXPECTING_VALUES = "%nExpecting values:%n  <%s>";
     static final String EXPECTING = "%nExpecting: <%s> ";
-    static final String EXPECTING_NEWLINE = "%nExpecting:%n <%s>%n";
+    static final String EXPECTING_NEWLINE = "%nExpecting:%n  <%s>%n";
     static final String IN_FIELD = "in field <%s> ";
     static final String IN_FIELDS = "%nin fields:%n  <%s>";
     static final String BUT_WAS = "but was <%s> ";
@@ -27,6 +27,7 @@ public class MessageBuilder {
     static final String NEWLINE_IN = "%nin <%s>";
     static final String COMPARISON_ON_FIELDS = ".%nComparison was performed on fields:%n  <%s>";
     static final String HAVE_SAME_GENERIC_TYPE = "have the same generic type as condition <%s>";
+    static final String HAVE_AT_LEAST_ONE_ELEMENT_OF_TYPE = "to have at least one element of type:%n  <%s>%nbut had none.";
     static final String TO_BE_GREATER_THAN_OR_EQUAL_TO = "to be greater than or equal to:%n <%s> %s";
   }
 
@@ -75,6 +76,12 @@ public class MessageBuilder {
     builder.append(Lexicon.HAVE_SAME_GENERIC_TYPE);
     return this;
   }
+
+  public MessageBuilder haveAtLeastOneElementOfType() {
+    builder.append(Lexicon.HAVE_AT_LEAST_ONE_ELEMENT_OF_TYPE);
+    return this;
+  }
+
   public MessageBuilder toBeGreaterThanOrEqualTo() {
     builder.append(Lexicon.TO_BE_GREATER_THAN_OR_EQUAL_TO);
     return this;

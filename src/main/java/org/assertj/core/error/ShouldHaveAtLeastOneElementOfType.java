@@ -13,6 +13,8 @@
 package org.assertj.core.error;
 
 
+import static org.assertj.core.error.builders.MessageBuilder.aMessage;
+
 /**
  * Creates an error message indicating that a group does not have an element of the given type.
  */
@@ -29,6 +31,6 @@ public class ShouldHaveAtLeastOneElementOfType extends BasicErrorMessageFactory 
   }
 
   private ShouldHaveAtLeastOneElementOfType(Object actual, Class<?> expectedType) {
-    super("%nExpecting:%n  <%s>%nto have at least one element of type:%n  <%s>%nbut had none.", actual, expectedType);
+    super(aMessage().expectingWithNewLine().haveAtLeastOneElementOfType().build(), actual, expectedType);
   }
 }
