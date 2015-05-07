@@ -23,12 +23,14 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import co.unruly.junit.ReliabilityRule;
 import org.assertj.core.api.DateAssertBaseTest;
 import org.assertj.core.test.ExpectedException;
 import org.assertj.core.util.Dates;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runners.model.Statement;
 
 /**
  * Tests the default date format used when using date assertions with date represented as string.
@@ -62,8 +64,11 @@ public class DateAssert_with_string_based_date_representation_Test extends DateA
     assertThat(date).isEqualTo("2003-04-26T00:00:00.000");
   }
 
+  @Rule public ReliabilityRule rule = new ReliabilityRule(10);
+
   @Test
   public void date_assertion_should_support_timestamp_string_representation() {
+    System.out.println("running test");
     Date date = new Date();
     Timestamp timestamp = new Timestamp(date.getTime());
     // 2015-04-12 21:25:12.293

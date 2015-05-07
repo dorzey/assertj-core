@@ -64,6 +64,11 @@
       <version>0.6.4</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>co.unruly</groupId>
+          <artifactId>junit-rules</artifactId>
+          <version>1.0</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
