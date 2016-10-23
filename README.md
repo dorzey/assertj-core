@@ -1,5 +1,5 @@
 # AssertJ - Fluent assertions for java
-
+test
 Build status:
 
 * master: [![Build Status (master)](https://travis-ci.org/joel-costigliola/assertj-core.svg?branch=master)](https://travis-ci.org/joel-costigliola/assertj-core)
